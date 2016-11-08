@@ -14,6 +14,7 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     
     fileprivate let manager:CBCentralManager
     fileprivate let _beacons:HMHBeaconList = HMHBeaconList()
+    fileprivate var coefs:[String:Double] = [:]
     
     public var beacons:HMHBeaconList{
         get{
@@ -33,7 +34,7 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     
     public func coefList( _ coefs:[String:Double] )
     {
-        
+        self.coefs = coefs
     }
     
     //MARK: - CBCentralManagerDelegate
@@ -52,13 +53,15 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber)
     {
-        var beacon = beacons.find( peripheral.name! )
+        let name = peripheral.name!
+        
+        var beacon = beacons.find( name )
         
         if beacon == nil {
             let txPower = advertisementData[ CBAdvertisementDataTxPowerLevelKey ] as! NSNumber
             
-            beacon = HMHBeacon( peripheral.name!, tx: txPower.intValue, coef:2 )
-            beacons.add(peripheral.name!, beacon: beacon!)
+            beacon = HMHBeacon( name, tx: txPower.intValue, coef: coefs[name]! )
+            beacons.add(name, beacon: beacon!)
         }
         
         beacon?.addRSSIValue(RSSI.intValue)
