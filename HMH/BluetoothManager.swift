@@ -31,6 +31,11 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         manager.delegate = self
     }
     
+    public func coefList( _ coefs:[String:Double] )
+    {
+        
+    }
+    
     //MARK: - CBCentralManagerDelegate
     public func centralManagerDidUpdateState(_ central: CBCentralManager){
         switch( central.state )
@@ -52,7 +57,7 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         if beacon == nil {
             let txPower = advertisementData[ CBAdvertisementDataTxPowerLevelKey ] as! NSNumber
             
-            beacon = HMHBeacon( peripheral.name!, tx: txPower.intValue )
+            beacon = HMHBeacon( peripheral.name!, tx: txPower.intValue, coef:2 )
             beacons.add(peripheral.name!, beacon: beacon!)
         }
         

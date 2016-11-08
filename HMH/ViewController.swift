@@ -17,7 +17,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        BluetoothManager.instance
+        let coefs = [
+            "HMHBeacona5": 2.8962,
+            "HMHBeacona6": 3.1102,
+            "HMHBeacona7": 3.0001,
+            "HMHBeacona8": 1.2763,
+            "HMHBeacona9": 4.5890,
+            "HMHBeacona10": 2.8960,
+            "HMHBeacona11": 2.7072,
+            "HMHBeacona12": 1.9857,
+            "HMHBeacon": 3.2400,
+        ]
+        
+        _ = BluetoothManager.instance.coefList( coefs )
         
         initGraph()
     }
