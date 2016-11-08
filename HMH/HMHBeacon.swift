@@ -33,6 +33,12 @@ class HMHBeacon:CustomStringConvertible{
         }
     }
     
+    public var distance:Float{
+        get {
+            return pow( 10, Float(tx-workingRSSI) / Float(10*coef))
+        }
+    }
+    
     init(_ name:String, tx:Int, coef:Double )
     {
         self.name = name
