@@ -12,6 +12,8 @@ class HMHBeacon:CustomStringConvertible{
     
     fileprivate let name:String
     fileprivate let tx:Int
+    fileprivate let coef:Double
+    
     fileprivate var rssiValues:[Int] = []
     
     static let RSSIMaxReadings = 8
@@ -31,10 +33,11 @@ class HMHBeacon:CustomStringConvertible{
         }
     }
     
-    init(_ name:String, tx:Int )
+    init(_ name:String, tx:Int, coef:Double )
     {
         self.name = name
         self.tx = tx
+        self.coef = coef
     }
     
     func addRSSIValue(_ rssi: Int )
