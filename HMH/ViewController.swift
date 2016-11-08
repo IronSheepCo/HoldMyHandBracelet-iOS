@@ -9,9 +9,10 @@
 import UIKit
 import CoreBluetooth
 
-class ViewController: UIViewController {
-    
+class ViewController: UIViewController, BluetoothManagerDelegate {
     fileprivate let graph:HMHGraph = HMHGraph()
+    
+    @IBOutlet weak var debugLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,9 @@ class ViewController: UIViewController {
             "HMHBeacon": 3.2400,
         ]
         
-        _ = BluetoothManager.instance.coefList( coefs )
+        let bleManager = BluetoothManager.instance
+        bleManager.coefList( coefs )
+        bleManager.delegate = self
         
         initGraph()
     }
@@ -37,6 +40,10 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    internal func closestBeacon(_ beacon: HMHBeacon) {
+        debugLabel?.text = "Current \(beacon) d: \(beacon.distance)"
     }
 
     fileprivate func initGraph()
