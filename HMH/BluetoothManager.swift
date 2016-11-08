@@ -16,6 +16,10 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     fileprivate let _beacons:HMHBeaconList = HMHBeaconList()
     fileprivate var coefs:[String:Double] = [:]
     
+    fileprivate var currentBeacon:HMHBeacon?
+    
+    public var delegate: BluetoothManagerDelegate?
+    
     public var beacons:HMHBeaconList{
         get{
             return _beacons;
@@ -65,6 +69,9 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         }
         
         beacon?.addRSSIValue(RSSI.intValue)
+        
+        //lets compute the current position
+        computeCurrentPosition()
     }
     
     //MARK: - Scanning
@@ -73,6 +80,18 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         let options = [CBCentralManagerScanOptionAllowDuplicatesKey:NSNumber(booleanLiteral: true)]
         
         manager.scanForPeripherals(withServices: nil, options: options)
+    }
+    
+    //MARK: - Position computation
+    fileprivate func computeCurrentPosition()
+    {
+        let sorted = beacons.list().sorted { (first, second) -> Bool in
+            return first.distance < second.distance
+        }
+        
+        currentBeacon = sorted.first
+        
+        delegate?.closestBeacon(currentBeacon!)
     }
     
 }
