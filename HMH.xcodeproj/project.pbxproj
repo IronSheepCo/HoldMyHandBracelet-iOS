@@ -17,6 +17,7 @@
 		8EDDA5611DD1CDE500A0CE70 /* HMHGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDA5601DD1CDE500A0CE70 /* HMHGraph.swift */; };
 		8EDDA5631DD1DE0900A0CE70 /* HMHBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDA5621DD1DE0900A0CE70 /* HMHBeacon.swift */; };
 		8EDDA5651DD1E47200A0CE70 /* HMHBeaconList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDA5641DD1E47200A0CE70 /* HMHBeaconList.swift */; };
+		8EDDA5671DD2363900A0CE70 /* BluetoothManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDA5661DD2363900A0CE70 /* BluetoothManagerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8EDDA5601DD1CDE500A0CE70 /* HMHGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMHGraph.swift; sourceTree = "<group>"; };
 		8EDDA5621DD1DE0900A0CE70 /* HMHBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMHBeacon.swift; sourceTree = "<group>"; };
 		8EDDA5641DD1E47200A0CE70 /* HMHBeaconList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMHBeaconList.swift; sourceTree = "<group>"; };
+		8EDDA5661DD2363900A0CE70 /* BluetoothManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothManagerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				8EDDA55A1DD0C49700A0CE70 /* BluetoothManager.swift */,
 				8EDDA5621DD1DE0900A0CE70 /* HMHBeacon.swift */,
 				8EDDA5641DD1E47200A0CE70 /* HMHBeaconList.swift */,
+				8EDDA5661DD2363900A0CE70 /* BluetoothManagerDelegate.swift */,
 			);
 			name = Bluetooth;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				8EDDA5631DD1DE0900A0CE70 /* HMHBeacon.swift in Sources */,
 				8EDDA55B1DD0C49700A0CE70 /* BluetoothManager.swift in Sources */,
 				8EDDA5491DD0C3EB00A0CE70 /* AppDelegate.swift in Sources */,
+				8EDDA5671DD2363900A0CE70 /* BluetoothManagerDelegate.swift in Sources */,
 				8EDDA5611DD1CDE500A0CE70 /* HMHGraph.swift in Sources */,
 				8EDDA55F1DD1CDC700A0CE70 /* HMHNode.swift in Sources */,
 			);
