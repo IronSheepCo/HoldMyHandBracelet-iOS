@@ -29,6 +29,13 @@ class HMHBeacon:CustomStringConvertible{
             //sort the readings
             let tmp = rssiValues.sorted()
             
+            //no data yet, so return a really big
+            //value
+            if tmp.count == 0
+            {
+                return -10000
+            }
+            
             return tmp[ tmp.count/2 ]
         }
     }
