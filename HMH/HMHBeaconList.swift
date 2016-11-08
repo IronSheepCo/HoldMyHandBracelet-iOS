@@ -22,4 +22,9 @@ class HMHBeaconList{
     {
         return beacons[ name ]
     }
+    
+    func list()->[HMHBeacon]
+    {
+        return Array(beacons.values)
+    }
 }
