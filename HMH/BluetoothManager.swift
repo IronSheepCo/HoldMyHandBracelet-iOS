@@ -57,7 +57,7 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber)
     {
-        let name = peripheral.name!
+        guard let name = peripheral.name else { return }
         
         var beacon = beacons.find( name )
         
