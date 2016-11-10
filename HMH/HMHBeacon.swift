@@ -10,7 +10,7 @@ import Foundation
 
 class HMHBeacon:CustomStringConvertible{
     
-    fileprivate let name:String
+    public let name:String
     fileprivate let tx:Int
     fileprivate let coef:Double
     
