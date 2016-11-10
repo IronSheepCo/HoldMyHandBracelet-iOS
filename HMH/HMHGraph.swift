@@ -44,4 +44,62 @@ class HMHGraph: CustomStringConvertible
         addEdge(first: edge[0], second: edge[1])
     }
     
+    func computeGraphForDestination(_ destination:Int ) -> [HMHNode:HMHNode]{
+        var parentGraph:[HMHNode:HMHNode] = [:]
+        
+        var currentNode = nodes[destination]
+        
+        var currentNodes:[HMHNode] = [ currentNode ]
+        
+        var visited:[HMHNode:Bool] = [currentNode:true]
+        var distance:[HMHNode:Int] = [currentNode:0]
+        
+        while currentNodes.count > 0
+        {
+            currentNode = currentNodes.first!
+            currentNodes.removeFirst()
+            
+            //search for edges
+            for edge in edges
+            {
+                var sibling:HMHNode?
+                
+                if edge[0] == currentNode
+                {
+                    sibling = edge[1]
+                }
+                
+                if edge[1] == currentNode
+                {
+                    sibling = edge[0]
+                }
+                
+                guard let realSibling = sibling else { continue }
+                
+                //we have a match, check if we already visited that node
+                if visited[ realSibling ] == nil
+                {
+                    //first time we see this node
+                    currentNodes.append( realSibling )
+                    parentGraph[ realSibling ] = currentNode
+                    distance[ realSibling ] = distance[ currentNode ]!+1
+                }
+                else
+                {
+                    let dist = distance[ currentNode ]! + 1
+                    
+                    if dist < distance[ realSibling ]!
+                    {
+                        distance[realSibling] = dist
+                        parentGraph[realSibling] = currentNode
+                    }
+                }
+            }
+            
+            visited[currentNode] = true
+        }
+        
+        return parentGraph
+    }
+    
 }
