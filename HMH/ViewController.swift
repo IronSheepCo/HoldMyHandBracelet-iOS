@@ -43,17 +43,20 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
     }
     
     internal func closestBeacon(_ beacon: HMHBeacon) {
-        debugLabel?.text = "Current \(beacon) d: \(beacon.distance)"
+        debugLabel?.text = "Current \(beacon.Node?.name) d: \(beacon.distance)"
     }
 
     fileprivate func initGraph()
     {
         //create nodes
-        let names = ["hol 1", "hol 2", "QA", "Dev", "hol mic", "Game", "RE", "hol baie", "hol buc", "baie", "buc"]
+        let names = ["hol 1":"HMHBeacona5", "hol 2":"HMHBeacona12", "QA":"HMHBeacona6", "Dev":"HMHBeacona7", "hol mic":"HMHBeacona9", "Game":"HMHBeacona10", "RE":"HMHBeacon", "hol baie":"", "hol buc":"", "baie":"", "buc":""]
         
-        for name in names
+        for (name, beaconName) in names
         {
-            graph.addNode(node: HMHNode(name: name) )
+            let node = HMHNode(name: name)
+            graph.addNode(node:node)
+            
+            BluetoothManager.instance.setAreaToNode( beaconName, node: node)
         }
         
         //create edges
