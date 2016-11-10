@@ -49,14 +49,14 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
     fileprivate func initGraph()
     {
         //create nodes
-        let names = ["hol 1":"HMHBeacona5", "hol 2":"HMHBeacona11", "QA":"HMHBeacona6", "Dev":"HMHBeacona7", "hol mic":"HMHBeacona9", "Game":"HMHBeacona10", "RE":"HMHBeacon", "hol baie":"", "hol buc":"", "baie":"", "buc":""]
+        let names = [ ["hol 1","HMHBeacona5"], ["hol 2","HMHBeacona11"], ["QA","HMHBeacona6"], ["Dev","HMHBeacona7"], ["hol mic","HMHBeacona9"], ["Game","HMHBeacona10"], ["RE","HMHBeacon"], ["hol baie",""], ["hol buc",""], ["baie",""], ["buc",""] ]
         
-        for (name, beaconName) in names
+        for data in names
         {
-            let node = HMHNode(name: name)
+            let node = HMHNode(name: data[0])
             graph.addNode(node:node)
             
-            BluetoothManager.instance.setAreaToNode( beaconName, node: node)
+            BluetoothManager.instance.setAreaToNode( data[1], node: node)
         }
         
         //create edges
