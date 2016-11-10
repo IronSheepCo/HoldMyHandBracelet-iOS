@@ -18,6 +18,8 @@ class HMHBeacon:CustomStringConvertible{
     
     static let RSSIMaxReadings = 8
     
+    public var Node: HMHNode?
+    
     public var description: String{
         get{
             return "Beacon: \(name)"

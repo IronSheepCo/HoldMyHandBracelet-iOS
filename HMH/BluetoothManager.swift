@@ -15,6 +15,7 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     fileprivate let manager:CBCentralManager
     fileprivate let _beacons:HMHBeaconList = HMHBeaconList()
     fileprivate var coefs:[String:Double] = [:]
+    fileprivate var namesToNodes:[String:HMHNode] = [:]
     
     fileprivate var currentBeacon:HMHBeacon?
     
@@ -41,6 +42,11 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
         self.coefs = coefs
     }
     
+    public func setAreaToNode( _ beaconName:String, node: HMHNode)
+    {
+        namesToNodes[ beaconName ] = node
+    }
+    
     //MARK: - CBCentralManagerDelegate
     public func centralManagerDidUpdateState(_ central: CBCentralManager){
         switch( central.state )
@@ -65,6 +71,7 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
             let txPower = advertisementData[ CBAdvertisementDataTxPowerLevelKey ] as! NSNumber
             
             beacon = HMHBeacon( name, tx: txPower.intValue, coef: coefs[name]! )
+            beacon?.Node = namesToNodes[ name ]
             beacons.add(name, beacon: beacon!)
         }
         
