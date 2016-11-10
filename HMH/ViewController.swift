@@ -11,6 +11,7 @@ import CoreBluetooth
 
 class ViewController: UIViewController, BluetoothManagerDelegate {
     fileprivate let graph:HMHGraph = HMHGraph()
+    fileprivate var nextNode:[HMHNode:HMHNode] = [:]
     
     @IBOutlet weak var debugLabel: UILabel!
     
@@ -44,6 +45,7 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
     
     internal func closestBeacon(_ beacon: HMHBeacon) {
         debugLabel?.text = "Current \(beacon.Node?.name) d: \(beacon.distance)"
+        debugLabel?.text = (debugLabel?.text)! + "\n" + nextNode[beacon.Node!]!.name
     }
 
     fileprivate func initGraph()
@@ -66,6 +68,8 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
         {
             graph.addEdge( edge )
         }
+        
+        nextNode = graph.computeGraphForDestination(2)
     }
 
 }
