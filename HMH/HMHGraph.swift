@@ -113,4 +113,9 @@ class HMHGraph: CustomStringConvertible
         return parentGraph
     }
     
+    func computeGraphForDestination(_ node:HMHNode ) -> [HMHNode:HMHNode]{
+        guard let index = nodes.index(of: node) else { return [:] }
+        
+        return computeGraphForDestination(index)
+    }
 }
