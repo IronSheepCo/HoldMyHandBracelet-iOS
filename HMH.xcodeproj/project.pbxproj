@@ -47,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E8AF43F1DD5C72300DBDAFF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8EDDA54A1DD0C3EB00A0CE70 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		8EDDA53C1DD0C3EB00A0CE70 = {
 			isa = PBXGroup;
 			children = (
@@ -66,10 +74,10 @@
 		8EDDA5471DD0C3EB00A0CE70 /* HMH */ = {
 			isa = PBXGroup;
 			children = (
+				8E8AF43F1DD5C72300DBDAFF /* Controllers */,
 				8EDDA55D1DD1C69700A0CE70 /* Graph */,
 				8EDDA55C1DD0C49E00A0CE70 /* Bluetooth */,
 				8EDDA5481DD0C3EB00A0CE70 /* AppDelegate.swift */,
-				8EDDA54A1DD0C3EB00A0CE70 /* ViewController.swift */,
 				8EDDA54C1DD0C3EB00A0CE70 /* Main.storyboard */,
 				8EDDA54F1DD0C3EC00A0CE70 /* Assets.xcassets */,
 				8EDDA5511DD0C3EC00A0CE70 /* LaunchScreen.storyboard */,
