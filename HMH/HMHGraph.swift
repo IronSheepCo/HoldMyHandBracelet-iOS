@@ -29,6 +29,17 @@ class HMHGraph: CustomStringConvertible
         nodes.append(node)
     }
     
+    func nodeByName( _ name:String )->HMHNode?{
+        for node in nodes
+        {
+            if node.name == name {
+                return node
+            }
+        }
+        
+        return nil
+    }
+    
     func addEdge( first:HMHNode, second:HMHNode )
     {
         edges.append( [first, second] )

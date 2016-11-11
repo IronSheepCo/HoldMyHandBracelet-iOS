@@ -13,6 +13,8 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
     fileprivate let graph:HMHGraph = HMHGraph()
     fileprivate var nextNode:[HMHNode:HMHNode] = [:]
     
+    //fileprivate var destinationNode:HMHNode
+    
     @IBOutlet weak var debugLabel: UILabel!
     
     override func viewDidLoad() {
@@ -69,7 +71,9 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
             graph.addEdge( edge )
         }
         
-        nextNode = graph.computeGraphForDestination(2)
+        let node = graph.nodeByName("QA")
+        
+        nextNode = graph.computeGraphForDestination( node! )
     }
 
 }
