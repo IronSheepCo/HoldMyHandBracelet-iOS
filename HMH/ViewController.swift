@@ -76,7 +76,7 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
         
         for edge in edges
         {
-            graph.addEdge( edge )
+            graph.addEdge( edge, dir:.NORTH )
         }
         
         destinationNode = graph.nodeByName("QA")

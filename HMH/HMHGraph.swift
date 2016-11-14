@@ -8,10 +8,23 @@
 
 import Foundation
 
+enum Direction{
+    case SOUTH
+    case NORTH
+    case EAST
+    case WEST
+}
+
+struct Edge{
+    public let start:HMHNode
+    public let end:HMHNode
+    public let dir:Direction
+}
+
 class HMHGraph: CustomStringConvertible
 {
     fileprivate var nodes:[HMHNode] = []
-    fileprivate var edges:[ [HMHNode] ] = []
+    fileprivate var edges:[Edge] = []
     
     /// A textual representation of this instance, suitable for debugging.
     public var description: String
@@ -40,19 +53,19 @@ class HMHGraph: CustomStringConvertible
         return nil
     }
     
-    func addEdge( first:HMHNode, second:HMHNode )
+    func addEdge( first:HMHNode, second:HMHNode, dir:Direction )
     {
-        edges.append( [first, second] )
+        edges.append( Edge(start:first, end:second, dir:dir) )
     }
     
-    func addEdge( first:Int, second:Int )
+    func addEdge( first:Int, second:Int, dir:Direction )
     {
-        addEdge( first:nodes[first], second:nodes[second] )
+        addEdge( first:nodes[first], second:nodes[second], dir:dir )
     }
     
-    func addEdge(_ edge:[Int] )
+    func addEdge(_ edge:[Int], dir:Direction )
     {
-        addEdge(first: edge[0], second: edge[1])
+        addEdge(first: edge[0], second: edge[1], dir:dir)
     }
     
     func computeGraphForDestination(_ destination:Int ) -> [HMHNode:HMHNode]{
@@ -75,14 +88,14 @@ class HMHGraph: CustomStringConvertible
             {
                 var sibling:HMHNode?
                 
-                if edge[0] == currentNode
+                if edge.start == currentNode
                 {
-                    sibling = edge[1]
+                    sibling = edge.end
                 }
                 
-                if edge[1] == currentNode
+                if edge.end == currentNode
                 {
-                    sibling = edge[0]
+                    sibling = edge.start
                 }
                 
                 guard let realSibling = sibling else { continue }
