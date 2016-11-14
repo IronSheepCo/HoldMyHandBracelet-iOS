@@ -13,7 +13,7 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
     fileprivate let graph:HMHGraph = HMHGraph()
     fileprivate var nextNode:[HMHNode:HMHNode] = [:]
     
-    //fileprivate var destinationNode:HMHNode
+    fileprivate var destinationNode:HMHNode?
     
     @IBOutlet weak var debugLabel: UILabel!
     
@@ -47,7 +47,15 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
     
     internal func closestBeacon(_ beacon: HMHBeacon) {
         debugLabel?.text = "Current \(beacon.Node?.name) d: \(beacon.distance)"
-        debugLabel?.text = (debugLabel?.text)! + "\n" + nextNode[beacon.Node!]!.name
+        
+        if destinationNode == beacon.Node
+        {
+            debugLabel?.text = (debugLabel?.text)! + "\n" + "You are there"
+        }
+        else
+        {
+            debugLabel?.text = (debugLabel?.text)! + "\n" + nextNode[beacon.Node!]!.name
+        }
     }
 
     fileprivate func initGraph()
@@ -71,9 +79,9 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
             graph.addEdge( edge )
         }
         
-        let node = graph.nodeByName("QA")
+        destinationNode = graph.nodeByName("QA")
         
-        nextNode = graph.computeGraphForDestination( node! )
+        nextNode = graph.computeGraphForDestination( destinationNode! )
     }
 
 }
