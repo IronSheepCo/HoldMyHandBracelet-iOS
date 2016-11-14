@@ -16,6 +16,7 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
     fileprivate var destinationNode:HMHNode?
     
     @IBOutlet weak var debugLabel: UILabel!
+    @IBOutlet weak var dirLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
