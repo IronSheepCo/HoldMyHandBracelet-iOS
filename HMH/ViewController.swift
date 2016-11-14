@@ -11,7 +11,7 @@ import CoreBluetooth
 
 class ViewController: UIViewController, BluetoothManagerDelegate {
     fileprivate let graph:HMHGraph = HMHGraph()
-    fileprivate var nextNode:[HMHNode:HMHNode] = [:]
+    fileprivate var parentNodes:[HMHNode:HMHNode] = [:]
     
     fileprivate var destinationNode:HMHNode?
     
@@ -55,7 +55,9 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
         }
         else
         {
-            debugLabel?.text = (debugLabel?.text)! + "\n" + nextNode[beacon.Node!]!.name
+            let nextNode = parentNodes[beacon.Node!]!
+            
+            debugLabel?.text = (debugLabel?.text)! + "\n" + nextNode.name
         }
     }
 
@@ -82,7 +84,7 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
         
         destinationNode = graph.nodeByName("QA")
         
-        nextNode = graph.computeGraphForDestination( destinationNode! )
+        parentNodes = graph.computeGraphForDestination( destinationNode! )
     }
 
 }
