@@ -20,6 +20,7 @@ enum PathToTake{
     case LEFT
     case RIGHT
     case BACK
+    case WAIT
 }
 
 struct Edge{
