@@ -76,6 +76,19 @@ class HMHGraph: CustomStringConvertible
         addEdge(first: edge[0], second: edge[1], dir:dir)
     }
     
+    func findEdge( from:HMHNode, to: HMHNode ) -> Edge?
+    {
+        for edge in edges {
+            if (edge.start == from && edge.end == to ) ||
+                (edge.start == to && edge.end == from )
+            {
+                return edge
+            }
+        }
+        
+        return nil
+    }
+    
     func computeGraphForDestination(_ destination:Int ) -> [HMHNode:HMHNode]{
         var parentGraph:[HMHNode:HMHNode] = [:]
         
@@ -138,5 +151,12 @@ class HMHGraph: CustomStringConvertible
         guard let index = nodes.index(of: node) else { return [:] }
         
         return computeGraphForDestination(index)
+    }
+    
+    func orientationRelativeToDirection( from: HMHNode, to: HMHNode, dir:Direction )->PathToTake{
+        
+        
+        
+        return .WAIT
     }
 }
