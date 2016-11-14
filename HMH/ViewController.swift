@@ -72,11 +72,11 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
         }
         
         //create edges
-        let edges = [ [0, 1], [1,2], [2,3], [3,0], [0,4], [4,5], [4,6], [4,7], [7,8], [7,9], [8,10] ]
+        let edges:[ [Any] ] = [ [0, 1, Direction.NORTH], [1, 2, Direction.WEST], [2, 3, Direction.SOUTH], [0, 2, Direction.WEST], [0, 4, Direction.WEST], [4, 5, Direction.NORTH], [4, 6, Direction.NORTH], [4, 7, Direction.SOUTH], [7, 8, Direction.EAST], [7, 9, Direction.NORTH], [9, 10, Direction.EAST] ]
         
         for edge in edges
         {
-            graph.addEdge( edge, dir:.NORTH )
+            graph.addEdge( first:edge[0] as! Int, second:edge[1] as! Int, dir:edge[2] as! Direction )
         }
         
         destinationNode = graph.nodeByName("QA")
