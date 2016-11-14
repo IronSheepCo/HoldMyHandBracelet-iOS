@@ -15,6 +15,13 @@ enum Direction{
     case WEST
 }
 
+enum PathToTake{
+    case FORWARD
+    case LEFT
+    case RIGHT
+    case BACK
+}
+
 struct Edge{
     public let start:HMHNode
     public let end:HMHNode
