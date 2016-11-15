@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Direction{
+enum Direction:String{
     case SOUTH
     case NORTH
     case EAST
