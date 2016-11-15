@@ -28,6 +28,7 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
     
     @IBOutlet weak var debugLabel: UILabel!
     @IBOutlet weak var dirLabel: UILabel!
+    @IBOutlet weak var debugTextArea: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

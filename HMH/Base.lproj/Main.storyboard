@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -32,22 +33,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zvw-MD-KbD">
+                                <rect key="frame" x="16" y="57" width="343" height="561"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RV8-wA-DQV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="0gf-8g-XYg"/>
+                            <constraint firstItem="7iX-Mb-EL2" firstAttribute="top" secondItem="zvw-MD-KbD" secondAttribute="bottom" constant="8" id="3Te-ez-RCn"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7iX-Mb-EL2" secondAttribute="bottom" constant="20" id="MR8-Ka-0Bm"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="zvw-MD-KbD" secondAttribute="leading" id="RPd-M2-3UO"/>
                             <constraint firstItem="RV8-wA-DQV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S6z-ku-rbG"/>
+                            <constraint firstItem="zvw-MD-KbD" firstAttribute="top" secondItem="RV8-wA-DQV" secondAttribute="bottom" constant="8" id="k6k-xL-b3M"/>
                             <constraint firstItem="7iX-Mb-EL2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="law-4O-eAv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zvw-MD-KbD" secondAttribute="trailing" id="yak-yg-0Oy"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="debugLabel" destination="7iX-Mb-EL2" id="gVj-ek-Y8F"/>
+                        <outlet property="debugTextArea" destination="zvw-MD-KbD" id="rvO-L0-FXt"/>
                         <outlet property="dirLabel" destination="RV8-wA-DQV" id="xro-ho-NG1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
 </document>
