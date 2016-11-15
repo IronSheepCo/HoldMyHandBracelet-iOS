@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E0C49E41DDA03370083C63D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0C49E31DDA03370083C63D /* Config.swift */; };
+		8E0C49E71DDB59500083C63D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0C49E61DDB59500083C63D /* Logger.swift */; };
 		8EDDA5491DD0C3EB00A0CE70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDA5481DD0C3EB00A0CE70 /* AppDelegate.swift */; };
 		8EDDA54B1DD0C3EB00A0CE70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDA54A1DD0C3EB00A0CE70 /* ViewController.swift */; };
 		8EDDA54E1DD0C3EB00A0CE70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDDA54C1DD0C3EB00A0CE70 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		8E0C49E31DDA03370083C63D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		8E0C49E61DDB59500083C63D /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		8EDDA5451DD0C3EB00A0CE70 /* HMH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDDA5481DD0C3EB00A0CE70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EDDA54A1DD0C3EB00A0CE70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 			name = Config;
 			sourceTree = "<group>";
 		};
+		8E0C49E51DDB587F0083C63D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8E0C49E61DDB59500083C63D /* Logger.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		8E8AF43F1DD5C72300DBDAFF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +94,7 @@
 		8EDDA5471DD0C3EB00A0CE70 /* HMH */ = {
 			isa = PBXGroup;
 			children = (
+				8E0C49E51DDB587F0083C63D /* Util */,
 				8E0C49E21DDA032D0083C63D /* Config */,
 				8E8AF43F1DD5C72300DBDAFF /* Controllers */,
 				8EDDA55D1DD1C69700A0CE70 /* Graph */,
@@ -195,6 +206,7 @@
 				8E0C49E41DDA03370083C63D /* Config.swift in Sources */,
 				8EDDA5631DD1DE0900A0CE70 /* HMHBeacon.swift in Sources */,
 				8EDDA55B1DD0C49700A0CE70 /* BluetoothManager.swift in Sources */,
+				8E0C49E71DDB59500083C63D /* Logger.swift in Sources */,
 				8EDDA5491DD0C3EB00A0CE70 /* AppDelegate.swift in Sources */,
 				8EDDA5671DD2363900A0CE70 /* BluetoothManagerDelegate.swift in Sources */,
 				8EDDA5611DD1CDE500A0CE70 /* HMHGraph.swift in Sources */,
