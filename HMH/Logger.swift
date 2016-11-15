@@ -24,7 +24,7 @@ class Logger{
         
         guard let view = view else { return }
         
-        view.text = view.text + what + "\n"
+        view.text = what + "\n" + view.text
     }
     
     func setView(_ view:UITextView )
