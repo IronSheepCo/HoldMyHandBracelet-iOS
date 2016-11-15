@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8E0C49E41DDA03370083C63D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0C49E31DDA03370083C63D /* Config.swift */; };
 		8E0C49E71DDB59500083C63D /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0C49E61DDB59500083C63D /* Logger.swift */; };
+		8E0C4A0D1DDB681F0083C63D /* HMHTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0C4A0C1DDB681F0083C63D /* HMHTests.swift */; };
 		8EDDA5491DD0C3EB00A0CE70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDA5481DD0C3EB00A0CE70 /* AppDelegate.swift */; };
 		8EDDA54B1DD0C3EB00A0CE70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDA54A1DD0C3EB00A0CE70 /* ViewController.swift */; };
 		8EDDA54E1DD0C3EB00A0CE70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EDDA54C1DD0C3EB00A0CE70 /* Main.storyboard */; };
@@ -22,9 +23,22 @@
 		8EDDA5671DD2363900A0CE70 /* BluetoothManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDDA5661DD2363900A0CE70 /* BluetoothManagerDelegate.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8E0C4A0F1DDB681F0083C63D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8EDDA53D1DD0C3EB00A0CE70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8EDDA5441DD0C3EB00A0CE70;
+			remoteInfo = HMH;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		8E0C49E31DDA03370083C63D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8E0C49E61DDB59500083C63D /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		8E0C4A0A1DDB681F0083C63D /* HMHTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HMHTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E0C4A0C1DDB681F0083C63D /* HMHTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HMHTests.swift; sourceTree = "<group>"; };
+		8E0C4A0E1DDB681F0083C63D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EDDA5451DD0C3EB00A0CE70 /* HMH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HMH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDDA5481DD0C3EB00A0CE70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EDDA54A1DD0C3EB00A0CE70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +55,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8E0C4A071DDB681F0083C63D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8EDDA5421DD0C3EB00A0CE70 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -67,6 +88,15 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
+		8E0C4A0B1DDB681F0083C63D /* HMHTests */ = {
+			isa = PBXGroup;
+			children = (
+				8E0C4A0C1DDB681F0083C63D /* HMHTests.swift */,
+				8E0C4A0E1DDB681F0083C63D /* Info.plist */,
+			);
+			path = HMHTests;
+			sourceTree = "<group>";
+		};
 		8E8AF43F1DD5C72300DBDAFF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				8EDDA5471DD0C3EB00A0CE70 /* HMH */,
+				8E0C4A0B1DDB681F0083C63D /* HMHTests */,
 				8EDDA5461DD0C3EB00A0CE70 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				8EDDA5451DD0C3EB00A0CE70 /* HMH.app */,
+				8E0C4A0A1DDB681F0083C63D /* HMHTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,6 +163,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8E0C4A091DDB681F0083C63D /* HMHTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E0C4A111DDB681F0083C63D /* Build configuration list for PBXNativeTarget "HMHTests" */;
+			buildPhases = (
+				8E0C4A061DDB681F0083C63D /* Sources */,
+				8E0C4A071DDB681F0083C63D /* Frameworks */,
+				8E0C4A081DDB681F0083C63D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8E0C4A101DDB681F0083C63D /* PBXTargetDependency */,
+			);
+			name = HMHTests;
+			productName = HMHTests;
+			productReference = 8E0C4A0A1DDB681F0083C63D /* HMHTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8EDDA5441DD0C3EB00A0CE70 /* HMH */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8EDDA5571DD0C3EC00A0CE70 /* Build configuration list for PBXNativeTarget "HMH" */;
@@ -158,6 +208,12 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = ironsheep.tech;
 				TargetAttributes = {
+					8E0C4A091DDB681F0083C63D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = HYH5GJW8EQ;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8EDDA5441DD0C3EB00A0CE70;
+					};
 					8EDDA5441DD0C3EB00A0CE70 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = HYH5GJW8EQ;
@@ -179,11 +235,19 @@
 			projectRoot = "";
 			targets = (
 				8EDDA5441DD0C3EB00A0CE70 /* HMH */,
+				8E0C4A091DDB681F0083C63D /* HMHTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8E0C4A081DDB681F0083C63D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8EDDA5431DD0C3EB00A0CE70 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -197,6 +261,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8E0C4A061DDB681F0083C63D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E0C4A0D1DDB681F0083C63D /* HMHTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8EDDA5411DD0C3EB00A0CE70 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,6 +287,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8E0C4A101DDB681F0083C63D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8EDDA5441DD0C3EB00A0CE70 /* HMH */;
+			targetProxy = 8E0C4A0F1DDB681F0083C63D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8EDDA54C1DD0C3EB00A0CE70 /* Main.storyboard */ = {
@@ -236,6 +316,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8E0C4A121DDB681F0083C63D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = HYH5GJW8EQ;
+				INFOPLIST_FILE = HMHTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tech.ironsheept.HMHTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HMH.app/HMH";
+			};
+			name = Debug;
+		};
+		8E0C4A131DDB681F0083C63D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = HYH5GJW8EQ;
+				INFOPLIST_FILE = HMHTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tech.ironsheept.HMHTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HMH.app/HMH";
+			};
+			name = Release;
+		};
 		8EDDA5551DD0C3EC00A0CE70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -358,6 +466,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8E0C4A111DDB681F0083C63D /* Build configuration list for PBXNativeTarget "HMHTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E0C4A121DDB681F0083C63D /* Debug */,
+				8E0C4A131DDB681F0083C63D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		8EDDA5401DD0C3EB00A0CE70 /* Build configuration list for PBXProject "HMH" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
