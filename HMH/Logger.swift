@@ -18,7 +18,7 @@ class Logger{
         
     }
     
-    func log( what:String ){
+    func log(_ what:String ){
         
         print(what)
         
