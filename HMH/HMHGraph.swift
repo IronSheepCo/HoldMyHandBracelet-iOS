@@ -15,7 +15,7 @@ enum Direction{
     case WEST
 }
 
-enum PathToTake{
+enum Orientation:String{
     case FORWARD
     case LEFT
     case RIGHT

@@ -13,7 +13,18 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
     fileprivate let graph:HMHGraph = HMHGraph()
     fileprivate var parentNodes:[HMHNode:HMHNode] = [:]
     
+    //destination node
     fileprivate var destinationNode:HMHNode?
+    
+    //current node the user is in
+    fileprivate var currentNode:HMHNode?
+    
+    //current direction, it changes when changing the node
+    fileprivate var currentDirection:Direction = .WEST
+    
+    
+    //the current orienation the user is in
+    fileprivate var currentOrientation:Orientation = .RIGHT
     
     @IBOutlet weak var debugLabel: UILabel!
     @IBOutlet weak var dirLabel: UILabel!
@@ -55,9 +66,34 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
         }
         else
         {
-            let nextNode = parentNodes[beacon.Node!]!
+            let nextNode = beacon.Node
             
-            debugLabel?.text = (debugLabel?.text)! + "\n" + nextNode.name
+            if currentNode == nextNode {
+                //still in the same place
+                return
+            }
+            
+            guard let currentNode = currentNode else
+            {
+                //first time we get a beacon
+                self.currentNode = nextNode
+                dirLabel.text = currentOrientation.rawValue
+                return
+            }
+            
+            guard let edge = graph.findEdge(from: currentNode, to: nextNode!) else { return }
+            
+            //set the current direction
+            currentDirection = graph.relativeDirection(from: currentNode, to: nextNode!, edge: edge)
+            
+            self.currentNode = nextNode
+            
+            //set the current orientation
+            currentOrientation = graph.orientationRelativeToDirection(from: currentNode, to: parentNodes[currentNode]!, dir: currentDirection)
+            
+            debugLabel?.text = (debugLabel?.text)! + "\n" + nextNode!.name
+            
+            dirLabel.text = currentOrientation.rawValue
         }
     }
 
