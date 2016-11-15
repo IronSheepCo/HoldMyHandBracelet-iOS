@@ -153,10 +153,80 @@ class HMHGraph: CustomStringConvertible
         return computeGraphForDestination(index)
     }
     
-    func orientationRelativeToDirection( from: HMHNode, to: HMHNode, dir:Direction )->PathToTake{
+    func relativeDirection( from:HMHNode, to: HMHNode, edge:Edge )->Direction{
+        if from == edge.start
+        {
+            return edge.dir
+        }
+        else
+        {
+            switch edge.dir
+            {
+                case .SOUTH: return .NORTH
+                case .NORTH: return .SOUTH
+                case .EAST: return .WEST
+                case .WEST: return .EAST
+            }
+        }
+    }
+    
+    fileprivate func goingSouth(_ edgeDir:Direction )->Orientation
+    {
+        switch edgeDir
+        {
+        case .WEST: return .RIGHT
+        case .SOUTH: return .FORWARD
+        case .EAST: return .LEFT
+        case .NORTH: return .BACK
+        }
+    }
+    
+    fileprivate func goingEast(_ edgeDir:Direction )->Orientation
+    {
+        switch edgeDir
+        {
+        case .WEST: return .BACK
+        case .SOUTH: return .RIGHT
+        case .EAST: return .FORWARD
+        case .NORTH: return .LEFT
+        }
+    }
+    
+    fileprivate func goingNorth(_ edgeDir:Direction )->Orientation
+    {
+        switch edgeDir
+        {
+        case .WEST: return .LEFT
+        case .SOUTH: return .BACK
+        case .EAST: return .RIGHT
+        case .NORTH: return .FORWARD
+        }
+    }
+    
+    fileprivate func goingWest(_ edgeDir:Direction )->Orientation
+    {
+        switch edgeDir
+        {
+        case .WEST: return .FORWARD
+        case .SOUTH: return .LEFT
+        case .EAST: return .BACK
+        case .NORTH: return .RIGHT
+        }
+    }
+    
+    func orientationRelativeToDirection( from: HMHNode, to: HMHNode, dir:Direction )->Orientation{
         
+        guard let edge = findEdge(from: from, to: to) else { return .WAIT }
         
+        let edgeDir = relativeDirection(from: from, to: to, edge: edge)
         
-        return .WAIT
+        //we have the direction
+        switch dir
+        {
+        case .SOUTH:    return goingSouth( edgeDir )
+        case .EAST:     return goingEast( edgeDir )
+        case .NORTH:    return goingNorth( edgeDir )
+        case .WEST:     return goingWest( edgeDir )
+        }
     }
 }
