@@ -50,7 +50,12 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
         bleManager.coefList( coefs )
         bleManager.delegate = self
         
+        //init the logger
+        Logger.i.setView( debugTextArea )
+        
         initGraph()
+        
+        Logger.i.log( "init graph" )
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +65,8 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
     
     internal func closestBeacon(_ beacon: HMHBeacon) {
         debugLabel?.text = "Current \(beacon.Node?.name) d: \(beacon.distance)"
+        
+        Logger.i.log("current beacon \(beacon.Node!.name)")
         
         if destinationNode == beacon.Node
         {
@@ -84,8 +91,12 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
             
             guard let edge = graph.findEdge(from: currentNode, to: nextNode!) else { return }
             
+            Logger.i.log("moving to new node")
+            
             //set the current direction
             currentDirection = graph.relativeDirection(from: currentNode, to: nextNode!, edge: edge)
+            
+            Logger.i.log("current direction \(currentDirection.rawValue)")
             
             self.currentNode = nextNode
             
