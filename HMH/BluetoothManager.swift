@@ -93,7 +93,20 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     fileprivate func computeCurrentPosition()
     {
         let sorted = beacons.list().sorted { (first, second) -> Bool in
-            return first.distance < second.distance
+            var firstDistance:Double = first.distance
+            var secondDistance:Double = second.distance
+            
+            if first == currentBeacon
+            {
+                firstDistance -= Config.CURRENT_NODE_DEDUCTION
+            }
+            
+            if second == currentBeacon
+            {
+                secondDistance -= Config.CURRENT_NODE_DEDUCTION
+            }
+            
+            return firstDistance < secondDistance
         }
         
         currentBeacon = sorted.first
