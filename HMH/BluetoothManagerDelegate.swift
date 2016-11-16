@@ -9,5 +9,7 @@
 import Foundation
 
 protocol BluetoothManagerDelegate: class{
-    func closestBeacon(_ beacon: HMHBeacon);
+    func closestBeacon(_ beacon: HMHBeacon)
+    
+    func areNeighbours(one: HMHBeacon, second: HMHBeacon)->Bool
 }

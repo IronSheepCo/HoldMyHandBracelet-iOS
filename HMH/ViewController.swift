@@ -127,6 +127,11 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
             dirLabel.text = currentOrientation.rawValue
         }
     }
+    
+    func areNeighbours(one: HMHBeacon, second: HMHBeacon) -> Bool
+    {
+        return graph.findEdge(from: one.Node!, to: second.Node!) != nil
+    }
 
     fileprivate func initGraph()
     {
