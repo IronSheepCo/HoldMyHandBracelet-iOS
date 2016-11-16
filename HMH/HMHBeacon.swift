@@ -46,9 +46,9 @@ class HMHBeacon:CustomStringConvertible, Equatable{
         }
     }
     
-    public var distance:Float{
+    public var distance:Double{
         get {
-            return pow( 10, Float(tx-workingRSSI) / Float(10*coef))
+            return pow( 10, Double(tx-workingRSSI) / (10.0*coef))
         }
     }
     
