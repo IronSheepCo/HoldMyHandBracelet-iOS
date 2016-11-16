@@ -120,7 +120,7 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
             self.currentNode = nextNode
             
             //set the current orientation
-            currentOrientation = graph.orientationRelativeToDirection(from: currentNode, to: parentNodes[currentNode]!, dir: currentDirection)
+            currentOrientation = graph.orientationRelativeToDirection(from: self.currentNode!, to: parentNodes[self.currentNode!]!, dir: currentDirection)
             
             debugLabel?.text = (debugLabel?.text)! + "\n" + nextNode!.name
             
