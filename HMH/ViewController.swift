@@ -123,7 +123,7 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
         }
         
         //create edges
-        let edges:[ [Any] ] = [ [0, 1, Direction.NORTH], [1, 2, Direction.WEST], [2, 3, Direction.SOUTH], [0, 2, Direction.WEST], [0, 4, Direction.EAST], [4, 5, Direction.NORTH], [4, 6, Direction.SOUTH], [4, 7, Direction.EAST], [7, 8, Direction.NORTH], [7, 9, Direction.EAST], [9, 10, Direction.EAST] ]
+        let edges:[ [Any] ] = [ [0, 1, Direction.NORTH], [1, 2, Direction.WEST], [2, 3, Direction.SOUTH], [0, 3, Direction.WEST], [0, 4, Direction.EAST], [4, 5, Direction.NORTH], [4, 6, Direction.SOUTH], [4, 7, Direction.EAST], [7, 8, Direction.NORTH], [7, 9, Direction.EAST], [9, 10, Direction.EAST] ]
         
         for edge in edges
         {
