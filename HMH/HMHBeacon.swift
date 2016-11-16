@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HMHBeacon:CustomStringConvertible{
+class HMHBeacon:CustomStringConvertible, Equatable{
     
     public let name:String
     fileprivate let tx:Int
@@ -19,6 +19,10 @@ class HMHBeacon:CustomStringConvertible{
     static let RSSIMaxReadings = 8
     
     public var Node: HMHNode?
+    
+    public static func==( lhs:HMHBeacon, rhs:HMHBeacon)->Bool{
+        return lhs.name == rhs.name
+    }
     
     public var description: String{
         get{
