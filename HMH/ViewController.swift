@@ -19,6 +19,12 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
     //current node the user is in
     fileprivate var currentNode:HMHNode?
     
+    //potential current node
+    //we'll use this and some time keeping
+    //to make the transition
+    fileprivate var potentialNode:HMHNode?
+    fileprivate var potentialNodeStart:Double = 0
+    
     //current direction, it changes when changing the node
     fileprivate var currentDirection:Direction = .WEST
     
@@ -67,6 +73,19 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
         debugLabel?.text = "Current \(beacon.Node?.name) d: \(beacon.distance)"
         
         Logger.i.log("current beacon \(beacon.Node!.name)")
+        
+        //if the current node is different
+        //then we use the new one as a beacon
+        if potentialNode != beacon.Node!
+        {
+            potentialNode = beacon.Node
+            potentialNodeStart = Date().timeIntervalSince1970
+        }
+        
+        if Date().timeIntervalSince1970 - potentialNodeStart < Double(Config.CHANGE_NODE_MILLI)/1000.0
+        {
+            return
+        }
         
         if destinationNode == beacon.Node
         {
