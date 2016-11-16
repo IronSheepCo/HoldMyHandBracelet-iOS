@@ -99,11 +99,21 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
             if first == currentBeacon
             {
                 firstDistance -= Config.CURRENT_NODE_DEDUCTION
+                
+                if firstDistance < Config.BEACON_MIN_DISTANCE
+                {
+                    firstDistance = Config.BEACON_MIN_DISTANCE
+                }
             }
             
             if second == currentBeacon
             {
                 secondDistance -= Config.CURRENT_NODE_DEDUCTION
+                
+                if secondDistance < Config.BEACON_MIN_DISTANCE
+                {
+                    secondDistance = Config.BEACON_MIN_DISTANCE
+                }
             }
             
             return firstDistance < secondDistance
