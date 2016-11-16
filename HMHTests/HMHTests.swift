@@ -28,7 +28,7 @@ class HMHTests: XCTestCase {
         }
         
         //create edges
-        let edges:[ [Any] ] = [ [0, 1, Direction.NORTH], [1, 2, Direction.WEST], [2, 3, Direction.SOUTH], [0, 2, Direction.WEST], [0, 4, Direction.EAST], [4, 5, Direction.NORTH], [4, 6, Direction.SOUTH], [4, 7, Direction.EAST], [7, 8, Direction.NORTH], [7, 9, Direction.EAST], [9, 10, Direction.EAST] ]
+        let edges:[ [Any] ] = [ [0, 1, Direction.NORTH], [1, 2, Direction.WEST], [2, 3, Direction.SOUTH], [0, 3, Direction.WEST], [0, 4, Direction.EAST], [4, 5, Direction.NORTH], [4, 6, Direction.SOUTH], [4, 7, Direction.EAST], [7, 8, Direction.NORTH], [7, 9, Direction.EAST], [9, 10, Direction.EAST] ]
         
         for edge in edges
         {
@@ -53,7 +53,20 @@ class HMHTests: XCTestCase {
         XCTAssert( graph.relativeDirection(from: currentNode, to: nextNode, edge: edge) == .NORTH )
     }
     
-    func testDirection(){
+    func testAccessNodeWrongName(){
+        XCTAssert( graph.nodeByName("wron asdad") == nil )
+        XCTAssert( graph.nodeByName("") == nil )
+    }
+    
+    func testNodeDescription(){
+        XCTAssert( graph.nodeByName("QA")?.description == "QA" )
+    }
+    
+    func testGraphDescription(){
+        XCTAssert( graph.description != nil )
+    }
+    
+    func testDirectionLeft(){
         let currentNode = graph.nodeByName("RE")!
         let nextNode = graph.nodeByName("hol mic")!
         let edge = graph.findEdge(from: currentNode, to: nextNode)!
@@ -65,4 +78,45 @@ class HMHTests: XCTestCase {
         XCTAssert( or == .LEFT )
     }
     
+    func testDirectionBack(){
+        let currentNode = graph.nodeByName("hol 1")!
+        let nextNode = graph.nodeByName("hol mic")!
+        let edge = graph.findEdge(from: currentNode, to: nextNode)!
+        
+        let dir = graph.relativeDirection(from: currentNode, to: nextNode, edge: edge)
+        
+        let or = graph.orientationRelativeToDirection(from: nextNode, to: parentNodes[nextNode]!, dir: dir)
+        
+        XCTAssert( or == .BACK )
+    }
+    
+    func testDirectionRight(){
+        let currentNode = graph.nodeByName("Game")!
+        let nextNode = graph.nodeByName("hol mic")!
+        let edge = graph.findEdge(from: currentNode, to: nextNode)!
+        
+        let dir = graph.relativeDirection(from: currentNode, to: nextNode, edge: edge)
+        
+        let or = graph.orientationRelativeToDirection(from: nextNode, to: parentNodes[nextNode]!, dir: dir)
+        
+        XCTAssert( or == .RIGHT )
+    }
+    
+    func testDirectionForward(){
+        let currentNode = graph.nodeByName("hol mic")!
+        let nextNode = graph.nodeByName("hol 1")!
+        let edge = graph.findEdge(from: currentNode, to: nextNode)!
+        
+        let dir = graph.relativeDirection(from: currentNode, to: nextNode, edge: edge)
+        
+        let or = graph.orientationRelativeToDirection(from: nextNode, to: parentNodes[nextNode]!, dir: dir)
+        
+        XCTAssert( or == .FORWARD )
+    }
+    
+    func testBeaconDescription(){
+        let beacon = BluetoothManager.instance.beacons.find("HMHBeacona5")
+        
+        XCTAssert( beacon?.description == "Beacon: HMHBeacona5" )
+    }
 }
