@@ -116,6 +116,16 @@ class BluetoothManager: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
                 }
             }
             
+            if (delegate?.areNeighbours(one: currentBeacon!, second: first ))!
+            {
+                firstDistance -= Config.NEIGHBOUR_NODE_DEDUCTION
+            }
+            
+            if (delegate?.areNeighbours(one: currentBeacon!, second: second ))!
+            {
+                secondDistance -= Config.NEIGHBOUR_NODE_DEDUCTION
+            }
+            
             return firstDistance < secondDistance
         }
         
