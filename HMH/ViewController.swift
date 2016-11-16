@@ -72,7 +72,10 @@ class ViewController: UIViewController, BluetoothManagerDelegate {
     internal func closestBeacon(_ beacon: HMHBeacon) {
         debugLabel?.text = "Current \(beacon.Node?.name) d: \(Double(Int(beacon.distance*100))/100.0)"
         
-        Logger.i.log("current beacon \(beacon.Node!.name)")
+        if currentNode != beacon.Node!
+        {
+            Logger.i.log("current beacon \(beacon.Node!.name)")
+        }
         
         //if the current node is different
         //then we use the new one as a beacon
